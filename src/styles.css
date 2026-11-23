@@ -1,7 +1,7 @@
 /* Styly aplikace. Design tokeny jsou definované v :root. */
 
 :root {
-  --color-primary: #2563eb;
+  --color-primary: #16a34a;
   --color-text: #1f2937;
   --color-muted: #6b7280;
   --color-surface: #ffffff;
@@ -65,12 +65,87 @@ h1 {
   margin: 0 0 calc(var(--space) * 1.5);
 }
 
-/* Tlačítko záměrně nepoužívá token --color-primary (viz úloha 4.2 ve skriptech). */
 .button {
   display: inline-block;
   padding: 10px 20px;
-  background: #111827;
+  background: var(--color-primary);
   color: #ffffff;
   border-radius: var(--radius);
   text-decoration: none;
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: calc(var(--space) * 2);
+  margin-top: calc(var(--space) * 2);
+  padding: calc(var(--space) * 2);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+}
+
+.contact__intro h2 {
+  margin: 0 0 var(--space);
+  color: var(--color-primary);
+  font-size: 1.75rem;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-form {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-form label {
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.form-note {
+  margin: 8px 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 640px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
 }
